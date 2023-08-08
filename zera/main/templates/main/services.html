@@ -1,0 +1,66 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+
+{% block title %} {{ title }} {% endblock %}
+
+
+{% block content %}
+<!--<div class="block_container color1">
+    
+    <div class="serv_block">
+        <div class="service">
+            <div class="serv-name">Стрижка</div>
+            <img class="serv-img" src="{% static 'main/img/services/scissors.png' %}" alt="">
+            <div class="serv-price">300 руб.</div>
+        </div>
+    </div>
+    <div class="serv_block">
+        <div class="service">
+            <div class="serv-name">Покраска</div>
+            <img class="serv-img" src="{% static 'main/img/services/coloring.png' %}" alt="">
+            <div class="serv-price">1000 руб.</div>
+        </div>
+    </div>
+    <div class="serv_block">
+        <div class="service">
+            <div class="serv-name">Стрижка</div>
+            <img class="serv-img" src="{% static 'main/img/services/scissors.png' %}" alt="">
+            <div class="serv-price">300 руб.</div>
+        </div>
+    </div>
+    <div class="serv_block">
+        <div class="service">
+            <div class="serv-name">Стрижка</div>
+            <img class="serv-img" src="{% static 'main/img/services/scissors.png' %}" alt="">
+            <div class="serv-price">300 руб.</div>
+        </div>
+    </div>
+</div>-->
+<div class="block_container color1">
+    <div class="serv-block">
+        {% for serv in service %}
+            <div class="service">
+                <h1 class="serv-name">{{ serv.name }}</h1>
+                <ul class="serv-list">
+                    {% for el in service_cats %}
+                        {% if el.service_id == serv.id %}
+                            <li>{{ el.name }}
+                                <div class="serv-price">
+                                    {% if el.max_price == None %}
+                                        <div class="serv-price">{{el.min_price}} р.</div>
+                                    {%else%}
+                                        <div class="serv-price">{{el.min_price}}-{{el.max_price}} р.</div>
+                                    {%endif%}
+                                </div>
+                            </li>
+                        {%endif%}
+                    {%endfor%}
+                </ul>
+            </div>
+        {%endfor%}
+        
+        
+    </div>
+</div>
+{% endblock %}

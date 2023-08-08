@@ -1,0 +1,60 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %} Зера Алиева - Парикмахер-стилист {% endblock %}
+
+{% block content %} 
+<div class="block_container color1">
+    <div class="cont-wrap">
+        <div class="block-text">
+            <h2>Парикмахер-стилист</h2>
+            <h1>Зера Алиева</h1>
+            <h4>Прическа влияет на то, как складывается день, а в итоге и жизнь.</h4>
+        </div>
+        <div class="block-img">
+            <div class="img-wrap">
+                <img src="{% static 'main/img/zera_photo_1.jpg' %}" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="block_container">
+    <div class="block-img">
+        <div class="img-wrap">
+            <img src="{% static 'main/img/zera_photo_3.jpg' %}" alt="">
+        </div>
+    </div>
+    <div class="block-text">
+        <h2>Обо мне</h2>
+        <h4>Мастер-парикмахер Зера. Главным в работе считаю постоянное стремление к лучшему, рост в профессии, создание нового,
+        желание подарить красоту, люблю естественность, и стараюсь подчеркнуть красоту клиента... Девиз - каждый клиент
+        любимый!!!</h4>
+    </div>
+</div>
+<div class="block_container color2">
+    <div class="block-text">
+        <h1>Портфолио</h1>
+    </div>
+    <div class="block-img">
+        <div class="gallery">
+            {%for img in port%}
+            <div class="image" style="--bg: url({{img.image.url}})"></div>
+            {%endfor%}
+        </div>
+    </div>
+    
+</div>
+<style>
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(144px, 1fr));
+        grid-auto-rows: 148px;
+    }
+    @media (max-width: 500px) {
+        .gallery {
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+        }
+    }
+</style>
+
+
+{% endblock %}

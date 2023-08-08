@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="{% static 'main/favicon.ico' %}" />
+</head>
+<body>
+    
+    <header>
+        <div class="header_sec not-active">
+            <div class="burger">
+                <span></span>
+            </div>
+        </div>
+        <div class="header_sec burg">
+            <div class="header_menu">
+                <div class="header_elem burg"><a class="header-a" href="{% url 'main' %}">Главная</a> </div>
+                <div class="header_elem burg"><a class="header-a" href="{% url 'portfolio' %}">Портфолио</a> </div>
+                <div class="header_elem burg"><a class="header-a" href="{% url 'services' %}">Услуги</a> </div>
+                <div class="header_elem burg"><a class="header-a" href="{% url 'contacts' %}">Контакты</a> </div>
+                <div class="header_elem burg"><a class="header-a" href="{% url 'feedbacks' %}">Отзывы</a> </div>
+            </div>
+        </div>
+        <div class="header_sec">
+            <div class="header_elem"><a href=""><img class="header_soc_logo" src="{% static 'main/img/social_logo/vk.png' %}" alt=""></a></div>
+            <div class="header_elem"><a href="https://www.instagram.com/dulber_beauty_studio/"><img class="header_soc_logo" src="{% static 'main/img/social_logo/inst.png' %}" alt=""></a></div>
+            <div class="header_elem"><a href=""><img class="header_soc_logo" src="{% static 'main/img/social_logo/tg.png' %}" alt=""></a></div>
+            <!--<div class="header_elem"><a href=""><i class="fa fa-vk fa-"></i></a></div>
+            <div class="header_elem"><a href=""><i class="fa fa-instagram"></i></a></div>
+            <div class="header_elem"><a href=""><i class="fa fa-telegram"></i></a></div>-->
+        </div>
+    </header>
+    {% block content %}{% endblock %}
+    <div class="block_container color3">
+        <div class="block-text">
+            <h1>Контакты</h1>
+        </div>
+        <div class="block-text">
+            <h1>+7978-71-434-83</h1>
+            <h3>г. Симферополь ул. Бела-Куна 9А</h3>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.burger').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.header_sec.burg').classList.toggle('open')
+        })
+        
+    </script>
+</body>
+</html>

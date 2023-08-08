@@ -1,0 +1,36 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% load my_filters %}
+
+
+{% block title %} {{ title }} {% endblock %}
+
+
+{% block content %}
+
+
+<div class="block_container color1">
+    <a href="{% url 'createfb' %}" class="btn-add-fb">Написать отзыв</a>
+    {% for el in feedbacks %}
+    <div class="fb-block">
+        <div class="fb-name">
+            {{ el.name }} 
+        </div>
+        
+        <div class="fb-rating">
+            {% for i in el.quality|times %}
+                <span class="active"></span>
+            {% endfor %}
+            
+            {% for i in el.quality|greystars|times %}
+                <span></span>
+            {% endfor %}
+            
+        </div>
+        <div class="fb-fbtext">
+            {{ el.feedback }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

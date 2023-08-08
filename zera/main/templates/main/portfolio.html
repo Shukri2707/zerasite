@@ -1,0 +1,18 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+
+{% block title %} Портфолио {% endblock %}
+
+
+{% block content %}
+<div class="сont-port block_container color1" style="display: block;">    
+    <div class="gallery">
+        {%for img in port%}
+            <div class="image" style="--bg: url({{img.image.url}})"></div>
+        {%endfor%}
+        
+    </div>
+</div>
+
+{% endblock %}
